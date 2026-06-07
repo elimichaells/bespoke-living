@@ -20,6 +20,10 @@
 # production
 /build
 
+# uploaded room images (managed by deployment, not git)
+/public/images/rooms/*
+!/public/images/rooms/.gitkeep
+
 # misc
 .DS_Store
 *.pem
@@ -39,3 +43,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
