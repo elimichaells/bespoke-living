@@ -1,5 +1,7 @@
 import { getBookings, getRooms } from "@/app/actions"
 
+export const dynamic = 'force-dynamic'
+
 type Booking = Awaited<ReturnType<typeof getBookings>>[number]
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BedDouble, Calendar, DollarSign, Users } from "lucide-react"

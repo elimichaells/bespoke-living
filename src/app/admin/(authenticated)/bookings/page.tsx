@@ -1,4 +1,6 @@
 import { getBookings } from "@/app/actions"
+
+export const dynamic = 'force-dynamic'
 import { BookingStatusActions } from "@/components/admin/booking-status-actions"
 
 type Booking = Awaited<ReturnType<typeof getBookings>>[number]

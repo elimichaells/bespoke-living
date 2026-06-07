@@ -1,4 +1,6 @@
 import { getPaymentMethods } from "@/app/actions/settings"
+
+export const dynamic = 'force-dynamic'
 import { PaymentMethodsList } from "@/components/admin/payment-methods"
 
 export default async function SettingsPage() {

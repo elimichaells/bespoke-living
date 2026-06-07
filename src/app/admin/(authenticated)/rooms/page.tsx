@@ -1,5 +1,7 @@
 import { getRooms, deleteRoom } from "@/app/actions"
 
+export const dynamic = 'force-dynamic'
+
 type Room = Awaited<ReturnType<typeof getRooms>>[number]
 type RoomImage = Room['images'][number]
 import { RoomActionDialog } from "@/components/admin/room-dialog"
