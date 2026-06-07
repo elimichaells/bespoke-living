@@ -24,6 +24,9 @@
 /public/images/rooms/*
 !/public/images/rooms/.gitkeep
 
+# local sqlite dev db (no longer used, using Neon PostgreSQL)
+/prisma/dev.db
+
 # misc
 .DS_Store
 *.pem
