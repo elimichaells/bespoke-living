@@ -1,5 +1,7 @@
 import { getBookings } from "@/app/actions"
 import { BookingStatusActions } from "@/components/admin/booking-status-actions"
+
+type Booking = Awaited<ReturnType<typeof getBookings>>[number]
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { format } from "date-fns"
 
@@ -23,7 +25,7 @@ export default async function AdminBookingsPage() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {bookings.map((booking) => (
+                        {bookings.map((booking: Booking) => (
                             <TableRow key={booking.id}>
                                 <TableCell>
                                     <div className="font-medium">{booking.customerName}</div>

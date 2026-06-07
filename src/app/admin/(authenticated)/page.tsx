@@ -1,4 +1,6 @@
 import { getBookings, getRooms } from "@/app/actions"
+
+type Booking = Awaited<ReturnType<typeof getBookings>>[number]
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BedDouble, Calendar, DollarSign, Users } from "lucide-react"
 
@@ -7,10 +9,10 @@ export default async function AdminDashboardPage() {
     const bookings = await getBookings()
 
     const totalRevenue = bookings
-        .filter((b: { status: string }) => b.status !== 'CANCELLED')
-        .reduce((acc: any, curr: { totalAmount: any }) => acc + curr.totalAmount, 0)
+        .filter((b: Booking) => b.status !== 'CANCELLED')
+        .reduce((acc: number, curr: Booking) => acc + curr.totalAmount, 0)
 
-    const confirmedBookings = bookings.filter((b: { status: string }) => b.status === 'CONFIRMED').length
+    const confirmedBookings = bookings.filter((b: Booking) => b.status === 'CONFIRMED').length
 
     return (
         <div className="space-y-6">

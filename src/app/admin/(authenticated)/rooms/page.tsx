@@ -1,4 +1,7 @@
 import { getRooms, deleteRoom } from "@/app/actions"
+
+type Room = Awaited<ReturnType<typeof getRooms>>[number]
+type RoomImage = Room['images'][number]
 import { RoomActionDialog } from "@/components/admin/room-dialog"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -29,8 +32,8 @@ export default async function AdminRoomsPage() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {rooms.map((room: any) => {
-                            const primaryImage = room.images?.find((img: any) => img.isPrimary) || room.images?.[0]
+                        {rooms.map((room: Room) => {
+                            const primaryImage = room.images?.find((img: RoomImage) => img.isPrimary) || room.images?.[0]
                             return (
                                 <TableRow key={room.id}>
                                     <TableCell>
