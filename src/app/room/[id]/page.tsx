@@ -95,7 +95,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
         )
     }
 
-    const amenitiesList = room.amenities?.split(',').map(a => a.trim()).filter(Boolean) || []
+    const amenitiesList = room.amenities ? room.amenities.split(',').map((a: string) => a.trim()).filter(Boolean) : []
 
     return (
         <div className="min-h-screen bg-background">
