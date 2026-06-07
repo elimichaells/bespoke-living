@@ -95,7 +95,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
         )
     }
 
-    const amenitiesList = room.amenities ? room.amenities.split(',').map((a: string) => a.trim()).filter(Boolean) : []
+    const amenitiesList: string[] = room.amenities ? room.amenities.split(',').map((a: string) => a.trim()).filter(Boolean) : []
 
     return (
         <div className="min-h-screen bg-background">
@@ -188,7 +188,7 @@ export default async function RoomPage({ params }: { params: Promise<{ id: strin
                         <section className="space-y-4">
                             <h2 className="text-xl font-semibold">What's Included</h2>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                                {amenitiesList.map((amenity, i) => {
+                                {amenitiesList.map((amenity: string, i) => {
                                     const IconComponent = getAmenityIcon(amenity)
                                     return (
                                         <div
